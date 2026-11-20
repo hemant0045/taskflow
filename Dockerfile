@@ -8,13 +8,10 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build
 
-# Stage 2: Serve the production build
-FROM nginx:alpine
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Expose Vite port
+EXPOSE 5173
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Start Vite server
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

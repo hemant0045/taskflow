@@ -1,0 +1,18 @@
+docker --version
+
+ docker images 
+
+ docker ps -a 
+
+ docker logs taskflow-container
+
+docker stop taskflow-container
+
+
+kubernetes
+
+
+kubectl version --client
+kubectl get nodes
+kubectl config get-contexts
+kubectl config use-context docker-desktop
